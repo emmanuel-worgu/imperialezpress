@@ -4,6 +4,37 @@ function getData() {
   
       const doc = JSON.parse(docs);
       const data = doc.data
+
+
+      const apiKey = 'b7bf0e8301cc47708363dc9a36676c8c'; // Replace with your API key
+      const location = data.currDest; // The location you want to convert
+
+      async function getCoordinates() {
+          const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${apiKey}`;
+
+          try {
+              const response = await fetch(apiUrl);
+              if (!response.ok) {
+                  throw new Error(`Error: ${response.status} - ${response.statusText}`);
+              }
+              
+              const data = await response.json();
+              if (data.results.length > 0) {
+                  const { lat, lng } = data.results[0].geometry;
+                  console.log(`Coordinates for ${location}: Latitude: ${lat}, Longitude: ${lng}`);
+                  localStorage.setItem('lat', lat);
+                  localStorage.setItem('lng', lng);
+              } else {
+                  console.log('No results found for the given location.');
+              }
+          } catch (error) {
+              console.error('Error fetching coordinates:', error);
+          }
+      }
+
+      // Call the function to get the coordinates
+      getCoordinates();
+
   
       document.getElementById('track-input').value = data.trackNumber;
       document.getElementById('tr_code').textContent = data.trackNumber;

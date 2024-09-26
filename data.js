@@ -7,7 +7,7 @@ async function track() {
       return alert ('Tracking Number Requred!!')
     }
 
-    console.log(trackInput);
+    // console.log(trackInput);
 
     const url = 'https://slada.onrender.com/admin/id-info/';
     const data = {
@@ -19,7 +19,7 @@ async function track() {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        "Access-Control-Allow-Origin-": "no-cors",
+        // "Access-Control-Allow-Origin-": "no-cors",
         "Content-Type": "application/json",
         "Accept": "application/json"
       }

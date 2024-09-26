@@ -1982,8 +1982,10 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- Map Initialization Script -->
     <script>
+		const lat = localStorage.getItem(lat);
+		const lng = localStorage.getItem(lng);
         // Initialize the map
-        var map = L.map('map').setView([51.505, -0.09], 13); // Coordinates and zoom level
+        var map = L.map('map').setView([lat, lng], 13); // Coordinates and zoom level
 
         // Add OpenStreetMap tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1991,7 +1993,7 @@
         }).addTo(map);
 
         // Add a marker
-        L.marker([39.8283, -0.5795]).addTo(map)
+        L.marker([lat, lng]).addTo(map)
             .bindPopup('')
             .openPopup();
     </script>
