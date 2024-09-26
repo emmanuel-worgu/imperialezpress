@@ -1982,8 +1982,8 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- Map Initialization Script -->
     <script>
-		const lat = localStorage.getItem(lat);
-		const lng = localStorage.getItem(lng);
+		const lat = parseFloat(localStorage.getItem('lat'));
+		const lng = parseFloat(localStorage.getItem('lng'));
         // Initialize the map
         var map = L.map('map').setView([lat, lng], 13); // Coordinates and zoom level
 
