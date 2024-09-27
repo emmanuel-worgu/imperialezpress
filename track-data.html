@@ -1985,7 +1985,7 @@
 		const lat = parseFloat(localStorage.getItem('lat'));
 		const lng = parseFloat(localStorage.getItem('lng'));
         // Initialize the map
-        var map = L.map('map').setView([lat, lng], 13); // Coordinates and zoom level
+        var map = L.map('map').setView([lat, lng], 0); // Coordinates and zoom level
 
         // Add OpenStreetMap tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1994,7 +1994,7 @@
 
         // Add a marker
         L.marker([lat, lng]).addTo(map)
-            .bindPopup('')
+            .bindPopup('Your Package is in good condition')
             .openPopup();
     </script>
                                                                                                     <!-- <div id="wpc-multiple-package"
